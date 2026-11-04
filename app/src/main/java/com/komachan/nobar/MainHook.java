@@ -70,7 +70,8 @@ public class MainHook implements IXposedHookLoadPackage {
         try {
             Class<?> handle = XposedHelpers.findClass(
                     "com.android.systemui.navigationbar.gestural.NavigationHandle", cl);
-            XposedBridge.hookAllMethods(handle, "draw", new XC_MethodHook() {
+            // Note: the class draws in onDraw(Canvas); there is no draw(Canvas) method.
+            XposedBridge.hookAllMethods(handle, "onDraw", new XC_MethodHook() {
                 @Override
                 protected void beforeHookedMethod(MethodHookParam p) {
                     p.setResult(null);
