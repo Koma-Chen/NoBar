@@ -5,7 +5,7 @@
         android:hasCode="true">
         <meta-data android:name="xposedmodule" android:value="true" />
         <meta-data android:name="xposeddescription"
-            android:value="保留手势线功能的同时隐藏手势线，仅在 OS4.XX 系统上验证。\n\n效果：\n• 底部手势条（小白条）不再绘制\n• 释放底部被强制占用的 56px 空间，应用内容可延伸到底\n• 手势功能完整保留：上滑回桌面、上滑停住进最近任务、左右边缘内滑返回\n\n原理：hook system_server 的 InsetsSourceProvider.updateSourceFrame，把 mandatorySystemGestures 的高度压成 0；同时 hook SystemUI 的 NavigationHandle.draw 阻止绘制。\n\n适配：HyperOS 4.0 / OS4.0.0.19.XOBCNXM / Android 17 (SDK 37) 实测通过，其他版本未验证。" />
+            android:value="保留手势线功能的同时隐藏手势线，仅在 OS4.0.0.19 系统上验证" />
         <meta-data android:name="xposedminversion" android:value="93" />
         <meta-data android:name="xposedscope" android:resource="@array/xposed_scope" />
     </application>
